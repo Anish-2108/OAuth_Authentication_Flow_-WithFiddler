@@ -42,22 +42,28 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9&ret=login&fbapp_pres=0&logger_id=7d6cb9eb-d86f-41d4-b891-80a3e811a58e&cbt=1590765084307&ext=1590768704&hash=AeZbeAYE7clWLqPD*
 
 **Cookies**
-Cookies stored at browsers with expiry date&time stamp on it to keep session active and remebers the URI
+Cookies are stored at browsers with expiry date&time stamp on it to keep session active and remebers the Authorization URI, to avoid unnecessary redirection for the next time when user login.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
 
 **Step 5:** Based on the credentials provided by the user a secure encrpyted connection will be establised to authenticate the user and it will be either authorized or denied.
 
-Once Idp verify the authorization URI (Idp will provide Authorization code in encrypted form. This code contains users Meta Data and access information of what all information service provider can access) see below fiddler trace.
+Once Idp verify the authorization URI (Idp will provide Authorization code in encrypted form and also the access token to service provider.
+
+Authorization code contains users Metadata and access information of what all information service provider can access) see below fiddler trace.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/6.png?w=1024)
 
 *linkedin.com/genie/finishauth?**code=AQAEYHiJ_ebXC0g0zgIBTJIppYKP_jyNufxyccvVU0I3wR596EVu8ubbgHdT0jwT1vxoTE3fQ1sE3xBVOpHmW44GZN64B1-tlWkgUU6FJsrQuF2u803jB_GtzFgUz5yO2uUs4dzpI-a9JPuO-Dm1E7CDNq2rVpRWYJq0Mw7C25ZISuFpjaIln-K5WGyFICE34WVBhjpWYCfa1McgA4Y0HaMiwH20ejr-vF3rMrba4OeqsI-CcCnLuTH7Da46KDlBccU9wpEOgCNJdwn83r-9He3luNCYyyW7eTAF0AEC3heliVVHnO8WAN07LrjsRBjdcmenGEZgu3wMyuGSbOz4lXp7&state=2309982a-87c5-4330-b4d1-d0687f421dd9#_=_***
 
 **Step 6:** 
+Once Service provider get the Authorization code and access token. It will request for resource access to Idp with authorization code. Service provider calls for protected resorces with access token 
+
+![Dashboard](https://anishpathan.files.wordpress.com/2020/05/8.png?w=1024)
+
+**/xauth/scb?_authEd=AgHk5vUHUi64VwAAAXJg_TBlbWTfxH_-3T0n_Lr52QUE0m9scLLhPEF_k-ZdpArVgbWH4K-I5kFc6-45M80VrhvKAXAJZeE7MmUKa1FjvrgBCAiURWVhpKwCOE8-KP1Llhv2w6C047KXGMG2PHPofDmvUFhdoouJKlAwNGkky0MaFnltpSfVt6ZwrgwzsMPx2Xzu90jwd3CVqcefU63dXWaA5N3lntiLgEQerrwoNzMXt59qYJ2WNI0_hJIrOb4siDNOuipYbB9VkW7xDpfBeFvS5uUUlACn3JKGH8S320GlkSWPuOh2E5XWTprDcGQCuqVHESUa2HuxW4BoKAUThEmwhti3I-W3B5K1c49SebL8BSz8Gbh8Mqeg61lbFRmvfgg**
 
 **Step 7:**
 
-
-
+Resource server will sent the user information users information in securely in 
 
