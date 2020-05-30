@@ -1,6 +1,6 @@
 # OAuth_Authentication_Flow_With_Fiddler
 
-# Description
+## *Description*
 
 OAuth is an open standard to grant access to Application or Websites to their information without providing them password. Oauth uses JWT (JSON Web token) in encrypted form to exchange tokens between serivce provider and identity provider.
 
@@ -16,7 +16,7 @@ To illustrate the authorization and authentication flow, I have chosen LinkedIn 
 
 **(Note:- All of the sessions traffic are encrypted in https so allow Https traffic from fiddler)**
 
-**Linkedin Sign-up via Facebook.**
+## **Linkedin Sign-up via Facebook.**
 
 ![Dashboard](https://s2.aconvert.com/convert/p3r68-cdx67/ttwkz-jw3sl.png)
 
