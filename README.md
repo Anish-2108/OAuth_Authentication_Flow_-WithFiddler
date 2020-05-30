@@ -18,6 +18,10 @@ Start capturing session traffic from the fiddler untill the signup is complete t
 ![Dashboard](https://s2.aconvert.com/convert/p3r68-cdx67/ttwkz-jw3sl.png)
 
 **Fiddler In Action** 
+
 Step 1: Linkedin URL Status code 200 (ok). Oauth process strated 
 
+![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
+
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
+
