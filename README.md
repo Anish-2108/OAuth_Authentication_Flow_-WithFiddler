@@ -28,12 +28,11 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 **Step 2:** Oauth process strated **(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect URI*)**
 
-**Step 3:** Redirected to service provider/Linkedin ***Check the response header (*Transport)**
+**Step 3:** Redirected to service provider/Linkedin **Check the response header (*Transport*)**
 
 **Response header** 
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
 
-**Cookies**
 
 **Step 4:** Facebook sents Authorization URI to Linkedin/Browser (user will be prompted to enter the credentials)
 
@@ -41,7 +40,11 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9&ret=login&fbapp_pres=0&logger_id=7d6cb9eb-d86f-41d4-b891-80a3e811a58e&cbt=1590765084307&ext=1590768704&hash=AeZbeAYE7clWLqPD*
 
-**Step 5:** Based on the credentials provided by the user a secure encrpyted connection will be establised to authenticate the user and either it will be authorized or denied.
+**Cookies**
+Cookies stored at browsers with expiry date&time stamp on it to keep session active and remebers the URI
+![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
+
+**Step 5:** Based on the credentials provided by the user a secure encrpyted connection will be establised to authenticate the user and it will be either authorized or denied.
 
 Once Authorized (Oauth will be finised and Resource server will provide Authorization code in encrypted form. This code contains users Meta Data and access information of what all information service provider can access) see below fiddler trace.
 
