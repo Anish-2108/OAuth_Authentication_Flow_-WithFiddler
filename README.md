@@ -10,8 +10,9 @@ To illustrate the authorization and authentication flow, I have chosen LinkedIn 
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/oauth_authflow.jpg?w=1024)
 
-*Download and install fidder tool and open the LinkedIn signup page and signup with facebook
-Start capturing session traffic from the fiddler untill the signup is complete then stop capturing and save all sessions.*
+*Download and install fidder tool and open the LinkedIn signup page and signup with facebook*
+
+*Start capturing session traffic from the fiddler untill the signup is complete then stop capturing and save all sessions.*
 
 **As shown below in the diagram.**
 
