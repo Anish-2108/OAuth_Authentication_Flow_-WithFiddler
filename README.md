@@ -43,7 +43,7 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 **Step 5:** Based on the credentials provided by the user a secure encrpyted connection will be establised to authenticate the user and either it will be authorized or denied.
 
-Once Authorized (Oauth will be finised and Resource server will provide Authorization code in encrypted form) As shown below
+Once Authorized (Oauth will be finised and Resource server will provide Authorization code in encrypted form. This code contains users Meta Data and access information of what all information service provider can access) see below fiddler trace.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/6.png?w=1024)
 
