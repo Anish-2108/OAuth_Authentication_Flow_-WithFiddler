@@ -37,4 +37,4 @@ Step 4: Idp Redirect URI sent to browsers
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.png?w=1024)
 
 facebook.com/v2.12/dialog/oauth?client_id=161320853908703&**redirect_uri=https%3A%2F%2F
-www.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9&ret=login&fbapp_pres=0&logger_id=7d6cb9eb-d86f-41d4-b891-80a3e811a58e&cbt=1590765084307&ext=1590768704&hash=AeZbeAYE7clWLqPD
+linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9&ret=login&fbapp_pres=0&logger_id=7d6cb9eb-d86f-41d4-b891-80a3e811a58e&cbt=1590765084307&ext=1590768704&hash=AeZbeAYE7clWLqPD**
