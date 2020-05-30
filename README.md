@@ -20,9 +20,11 @@ To illustrate the authorization and authentication flow, I have chosen LinkedIn 
 
 **Fiddler In Action** 
 
-**Step 1: Open Linkedin URL Status code 200 (ok).
+Step 1: Open Linkedin URL Status code 200 (ok).
+
 Step 2: Oauth process strated
-Step 3: Redirect to OAuth Server**
+
+Step 3: Redirect to OAuth Server
 
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
