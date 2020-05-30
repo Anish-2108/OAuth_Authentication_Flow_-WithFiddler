@@ -22,9 +22,9 @@ To illustrate the authorization and authentication flow, I have chosen LinkedIn 
 
 Step 1: Open Linkedin URL Status code 200 (ok).
 
-Step 2: Oauth process strated
+Step 2: Oauth process strated *facebook.com/v2.12/dialog/oauth? (presented with client id and redirect URI)*
 
-Step 3: Redirect to OAuth Server
+Step 3: Redirect to OAuth Server *Check the response header (Transport)*
 
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
