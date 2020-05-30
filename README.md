@@ -12,7 +12,8 @@ To illustrate the authorization and authentication flow, I have chosen LinkedIn 
 
 *Download and install fiddler tool and open the LinkedIn signup page and signup with facebook*
 *Start capturing session traffic from the fiddler untill the signup is complete then stop capturing and save all sessions.*
-**(Note All of the sessions traffic are encrypted in https so allow Https traffic from fiddler)**
+
+**(Note:- All of the sessions traffic are encrypted in https so allow Https traffic from fiddler)**
 
 **Linkedin Sign-up via Facebook.**
 
