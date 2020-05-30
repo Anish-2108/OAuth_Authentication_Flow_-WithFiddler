@@ -20,11 +20,13 @@ To illustrate the authorization and authentication flow, I have chosen LinkedIn 
 
 **Fiddler In Action** 
 
-**Step 1: Open Linkedin URL Status code 200 (ok).**
-**Step 2: Oauth process strated**
-**Step 3: Redirect to OAuth Server**
+**Step 1: Open Linkedin URL Status code 200 (ok).
+Step 2: Oauth process strated
+Step 3: Redirect to OAuth Server**
+
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
 
+**Response header** 
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
 
