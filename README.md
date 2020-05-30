@@ -19,7 +19,9 @@ Start capturing session traffic from the fiddler untill the signup is complete t
 
 **Fiddler In Action** 
 
-Step 1: Linkedin URL Status code 200 (ok). Oauth process strated 
+**Step 1: Open Linkedin URL Status code 200 (ok).**
+**Step 2: Oauth process strated**
+**Step 3: Redirect to OAuth Server**
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
 
