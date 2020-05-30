@@ -28,7 +28,7 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 **Step 2:** Oauth process strated **(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect URI*)**
 
-**Step 3:** Redirect to OAuth Server ***Check the response header (*Transport)**
+**Step 3:** Redirected to service provider/Linkedin ***Check the response header (*Transport)**
 
 **Response header** 
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
