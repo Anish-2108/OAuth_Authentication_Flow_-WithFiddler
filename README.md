@@ -35,6 +35,7 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 **Step 3:** LinkedIn request for Authorization URI for the user with client id.
 * In response facebook opens the redirected URI as shown in below (Headers).  
 * **Check the response header (*Transport*)**
+
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.png?w=1024)
 
 **Response header** 
