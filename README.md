@@ -24,11 +24,11 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 ## *Fiddler In Action*
 
-* **Step 1:** LinkedIn URL Status code 200 (ok). User clicks sign up with Facebook and couple of redirects between LinkedIn and Facebook requesting OAuth server URI.
+**Step 1:** LinkedIn URL Status code 200 (ok). User clicks sign up with Facebook and couple of redirects between LinkedIn and Facebook requesting OAuth server URI.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
 
-* **Step 2:** This is where OAuth process gets started and in redirect its asking for OAuth server and  users read only access information.**(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
+**Step 2:** This is where OAuth process gets started and in redirect its asking for OAuth server and  users read only access information.**(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
 * Access scope are previously defined between Idp and Sp.
 
 
@@ -38,36 +38,36 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.png?w=1024)
 
-**Response header** 
+* **Response header** 
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
 
 **Note: -** (Authorization URI are the access and scope request of resource made by LinkedIn to Facebook)
 
-* **Step 4:** Facebook checks the client id, request and scope. 
+**Step 4:** Facebook checks the client id, request and scope. 
 * It then redirects Authorization URI back to LinkedIn with a Facebook pop-up requesting to sign in to verify user’s identity on the Facebook login page itself. (So now the user is getting authenticated on Facebook and not on LinkedIn)
 
 * Once user post the credentials on login page Userid and password gets encrypted and sent to verify the credentials at idp(Facebook)
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
 
-**Response header** 
+* **Response header** 
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9&ret=login&fbapp_pres=0&logger_id=7d6cb9eb-d86f-41d4-b891-80a3e811a58e&cbt=1590765084307&ext=1590768704&hash=AeZbeAYE7clWLqPD*
 
-**Cookies** are stored at browsers with session id and expiry date and time stamp on it to keep session active and remembers the Authorization URI.
+* **Cookies** are stored at browsers with session id and expiry date and time stamp on it to keep session active and remembers the Authorization URI.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
 
-* **Step 5:** Once Idp verify the authorization URI (Idp will provide Authorization code and access token in encrypted form to access user’s information in read-only access.
+**Step 5:** Once Idp verify the authorization URI (Idp will provide Authorization code and access token in encrypted form to access user’s information in read-only access.
 
 * Authorization code contains requested users Metadata and access information of what all information service provider can access) see below fiddler trace.
 * Access token is encrypted in SSL binding, which has the access scope of user information. In this case its read-only access
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/6.png?w=1024)
 
-**Response header** 
+* **Response header** 
 *linkedin.com/genie/finishauth?code=AQAEYHiJ_ebXC0g0zgIBTJIppYKP_jyNufxyccvVU0I3wR596EVu8ubbgHdT0jwT1vxoTE3fQ1sE3xBVOpHmW44GZN64B1-tlWkgUU6FJsrQuF2u803jB_GtzFgUz5yO2uUs4dzpI-a9JPuO-Dm1E7CDNq2rVpRWYJq0Mw7C25ZISuFpjaIln-K5WGyFICE34WVBhjpWYCfa1McgA4Y0HaMiwH20ejr-vF3rMrba4OeqsI-CcCnLuTH7Da46KDlBccU9wpEOgCNJdwn83r-9He3luNCYyyW7eTAF0AEC3heliVVHnO8WAN07LrjsRBjdcmenGEZgu3wMyuGSbOz4lXp7&state=2309982a-87c5-4330-b4d1-d0687f421dd9#_=_*
 
-* **Step 6:** 
+**Step 6:** 
 Once Service provider get the Authorization code and access token. It will request for resource access to Idp with authorization code. Service provider calls for protected resorces with access token 
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/8.png?w=1024)
