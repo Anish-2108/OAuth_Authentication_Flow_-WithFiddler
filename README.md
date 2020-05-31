@@ -16,7 +16,7 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 * *Start capturing session traffic from the fiddler untill the signup is complete then stop capturing and save all sessions.*
 * ***Status codes: 100 (Continue) Status codes: 200 (Ok) Status codes: 300 (Ridrections) Status codes: 400 (Client Error) Status codes: 500 (Server Error)***
 
-**(Note:- All of the sessions traffic are encrypted in https so allow Https traffic from fiddler)**
+**(Note:- All of the sessions traffic are encrypted in https so allow https traffic from fiddler)**
 
 ## *Linkedin Sign-up via Facebook.*
 
@@ -28,12 +28,13 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
 
-* **Step 2:** This is where OAuth process gets started and in redirect its asking for users read only access information it based on the scope defined earlier. **(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
+* **Step 2:** This is where OAuth process gets started and in redirect its asking for OAuth server and  users read only access information.**(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
+* Access scope are previously defined between Idp and Sp.
+
 
 **Step 3:** LinkedIn request for Authorization URI for the user with client id.
-
-In response facebook opens the redirected URI as shown in below (Headers).  
-**Check the response header (*Transport*)**
+* In response facebook opens the redirected URI as shown in below (Headers).  
+* **Check the response header (*Transport*)**
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.png?w=1024)
 
 **Response header** 
@@ -41,9 +42,10 @@ In response facebook opens the redirected URI as shown in below (Headers).
 
 **Note: -** (Authorization URI are the access and scope request of resource made by LinkedIn to Facebook)
 
-* **Step 4:** Facebook checks the client id, request and scope. It then redirects Authorization URI back to LinkedIn with a Facebook pop-up requesting to sign in to verify user’s identity on the Facebook login page itself. (So now the user is getting authenticated on Facebook and not on LinkedIn)
+* **Step 4:** Facebook checks the client id, request and scope. 
+* It then redirects Authorization URI back to LinkedIn with a Facebook pop-up requesting to sign in to verify user’s identity on the Facebook login page itself. (So now the user is getting authenticated on Facebook and not on LinkedIn)
 
-Once user post the credentials on login page Userid and password gets encrypted and sent to verify the credentials at idp(Facebook)
+* Once user post the credentials on login page Userid and password gets encrypted and sent to verify the credentials at idp(Facebook)
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
 
@@ -54,11 +56,10 @@ Once user post the credentials on login page Userid and password gets encrypted 
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
 
-* **Step 5:** Based on the credentials provided by the user a secure encrpyted connection will be establised to authenticate the user and it will be either authorized or denied.
+* **Step 5:** Once Idp verify the authorization URI (Idp will provide Authorization code and access token in encrypted form to access user’s information in read-only access.
 
-Once Idp verify the authorization URI (Idp will provide Authorization code in encrypted form and also the access token to service provider.
-
-Authorization code contains users Metadata and access information of what all information service provider can access) see below fiddler trace.
+* Authorization code contains requested users Metadata and access information of what all information service provider can access) see below fiddler trace.
+* Access token is encrypted in SSL binding, which has the access scope of user information. In this case its read-only access
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/6.png?w=1024)
 
