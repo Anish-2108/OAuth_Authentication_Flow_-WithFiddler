@@ -1,7 +1,7 @@
-# OAuth_Authentication_Flow_With_Fiddler
+# OAuth 2.0 Authorization Flow with Fiddler
 
 ## *Description*
-OAuth 2.0 and OpenId Connect is very widely used terminology on internet. It’s an open standard to grant access to Application or Websites to users’ information without providing the password of them. OAuth uses JWT (JSON Web token) in encrypted form to exchange tokens between service provider and identity provider to access user resources and Application API.
+OAuth 2.0 and OpenId Connect is very widely used terminology on internet. It’s an open standard authorization and authentication protocol to grant access to Application or Websites and to users’ information without providing the password of them. OAuth uses JWT (JSON Web token) in encrypted form to exchange tokens between service provider and identity provider to access user resources and Application API.
 
 To illustrate the authorization and authentication flow, I have chosen **LinkedIn** as *Service provider(sp)* and **Facebook** as *Identity provider(idp)*. The motive is to identify the redirections and to understand the authentication flow with Fiddler in action. (*Fiddler intercept session traffic*)
 
