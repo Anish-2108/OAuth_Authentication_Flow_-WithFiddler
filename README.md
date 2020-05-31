@@ -67,19 +67,20 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 * **Response header** 
 *linkedin.com/genie/finishauth?code=AQAEYHiJ_ebXC0g0zgIBTJIppYKP_jyNufxyccvVU0I3wR596EVu8ubbgHdT0jwT1vxoTE3fQ1sE3xBVOpHmW44GZN64B1-tlWkgUU6FJsrQuF2u803jB_GtzFgUz5yO2uUs4dzpI-a9JPuO-Dm1E7CDNq2rVpRWYJq0Mw7C25ZISuFpjaIln-K5WGyFICE34WVBhjpWYCfa1McgA4Y0HaMiwH20ejr-vF3rMrba4OeqsI-CcCnLuTH7Da46KDlBccU9wpEOgCNJdwn83r-9He3luNCYyyW7eTAF0AEC3heliVVHnO8WAN07LrjsRBjdcmenGEZgu3wMyuGSbOz4lXp7&state=2309982a-87c5-4330-b4d1-d0687f421dd9#_=_*
 
-**Step 6:** 
-Once Service provider get the Authorization code and access token. It will request for resource access to Idp with authorization code. Service provider calls for protected resorces with access token 
-
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/8.png?w=1024)
 
-**Authorization code** 
 */xauth/scb?_authEd=AgHk5vUHUi64VwAAAXJg_TBlbWTfxH_-3T0n_Lr52QUE0m9scLLhPEF_k-ZdpArVgbWH4K-I5kFc6-45M80VrhvKAXAJZeE7MmUKa1FjvrgBCAiURWVhpKwCOE8-KP1Llhv2w6C047KXGMG2PHPofDmvUFhdoouJKlAwNGkky0MaFnltpSfVt6ZwrgwzsMPx2Xzu90jwd3CVqcefU63dXWaA5N3lntiLgEQerrwoNzMXt59qYJ2WNI0_hJIrOb4siDNOuipYbB9VkW7xDpfBeFvS5uUUlACn3JKGH8S320GlkSWPuOh2E5XWTprDcGQCuqVHESUa2HuxW4BoKAUThEmwhti3I-W3B5K1c49SebL8BSz8Gbh8Mqeg61lbFRmvfgg*
+
+**Step 6:** 
+Service provider (LinkedIn) calls for protected resources with access token and authorization code. In response resource server provides the access requested resource information in read only access. See the trace it hold the user access information. 
+
+![Dashboard](https://anishpathan.files.wordpress.com/2020/05/9.png?w=1024)
+
 
 * **Step 7:**
 
 Resource server in response to Authorization code lets the Service provider access to the client data in JSON format. As shown in below snap.
 
-![Dashboard](https://anishpathan.files.wordpress.com/2020/05/9.png?w=1024)
 
 **So far (OAuth 2.0) Authorization is completed in a Nutshell! **
 
