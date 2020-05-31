@@ -1,4 +1,4 @@
-# OAuth 2.0 Authorization Flow with Fiddler
+# OAuth 2.0 Authorization and Authentication Flow with Fiddler
 
 ## *Description*
 OAuth 2.0 and OpenId Connect is very widely used terminology on internet. It’s an open standard authorization and authentication protocol to grant access to Application or Websites and to users’ information without providing the password of them. OAuth uses JWT (JSON Web token) in encrypted form to exchange tokens between service provider and identity provider to access user resources and Web API.
