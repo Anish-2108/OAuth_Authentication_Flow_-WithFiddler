@@ -10,6 +10,8 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/oauth_authflow.jpg?w=1024)
 
+## *Fiddler Prep*
+
 * *Download and install fiddler tool and open the LinkedIn signup page and signup with facebook*
 
 * *Start capturing session traffic from the fiddler untill the signup is complete then stop capturing and save all sessions.*
@@ -17,11 +19,11 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 **(Note:- All of the sessions traffic are encrypted in https so allow Https traffic from fiddler)**
 
-## **Linkedin Sign-up via Facebook.**
+## *Linkedin Sign-up via Facebook.*
 
 ![Dashboard](https://s2.aconvert.com/convert/p3r68-cdx67/ttwkz-jw3sl.png)
 
-## **Fiddler In Action** 
+## *Fiddler In Action*
 
 * **Step 1:** Open Linkedin URL Status code 200 (ok).
 
