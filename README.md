@@ -29,7 +29,7 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
 
 **Step 2:** This is where OAuth process gets started and in redirect its asking for OAuth server and  users read only access information.**(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
-* Access scope are previously defined between Idp and Sp.
+* Access scope are previously defined between Idp/Authorization server which understand the scope of access like whether to read or write access to be provided based on the request.
 
 
 **Step 3:** LinkedIn request for Authorization URI for the user with client id.
@@ -60,7 +60,7 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 **Step 5:** Once Idp verify the authorization URI (Idp will provide Authorization code and access token in encrypted form to access user’s information in read-only access.
 
 * Authorization code contains requested users Metadata and access information of what all information service provider can access) see below fiddler trace.
-* Access token is encrypted in SSL binding, which has the access scope of user information. In this case its read-only access
+* Access token is encrypted in SSL bindings, which has the access scope defined for user's information. In this case its read-only access to the users resources.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/6.png?w=1024)
 
@@ -69,19 +69,16 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/8.png?w=1024)
 
+* **Access Token** 
 */xauth/scb?_authEd=AgHk5vUHUi64VwAAAXJg_TBlbWTfxH_-3T0n_Lr52QUE0m9scLLhPEF_k-ZdpArVgbWH4K-I5kFc6-45M80VrhvKAXAJZeE7MmUKa1FjvrgBCAiURWVhpKwCOE8-KP1Llhv2w6C047KXGMG2PHPofDmvUFhdoouJKlAwNGkky0MaFnltpSfVt6ZwrgwzsMPx2Xzu90jwd3CVqcefU63dXWaA5N3lntiLgEQerrwoNzMXt59qYJ2WNI0_hJIrOb4siDNOuipYbB9VkW7xDpfBeFvS5uUUlACn3JKGH8S320GlkSWPuOh2E5XWTprDcGQCuqVHESUa2HuxW4BoKAUThEmwhti3I-W3B5K1c49SebL8BSz8Gbh8Mqeg61lbFRmvfgg*
 
 **Step 6:** 
-Service provider (LinkedIn) calls for protected resources with access token and authorization code. In response resource server provides the access requested resource information in read only access. See the trace it hold the user access information. 
+* Service provider (LinkedIn) calls for protected resources with access token and authorization code. 
+* In response resource server provides the access requested resource information in read only access. See the trace it hold the user access information. see below it has FristName, LastName, ProfilePicUrl, Asid and etc..
+* Facebook has Authorized LinkedIn to access the user resources without providing password to LinkedIn with user consent.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/9.png?w=1024)
 
 
 * **Step 7:**
-
-Resource server in response to Authorization code lets the Service provider access to the client data in JSON format. As shown in below snap.
-
-
-**So far (OAuth 2.0) Authorization is completed in a Nutshell! **
-
-Now Authentication (O)
+OAuth successfully completed authorization and Authentication begins. 
