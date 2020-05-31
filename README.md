@@ -29,16 +29,16 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
 
-* **Step 2:** Oauth process strated **(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
+* **Step 2:** OAuth process strated **(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
 
-**Step 3:** Idp Opens the redirected URI with client id.
+**Step 3:** Idp opens the redirected URI with client id.
 **Check the response header (*Transport*)**
 
 **Response header** 
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
 
 
-* **Step 4:** Facebook sents Authorization URI to Linkedin/Browser In responses to Authorization URI (user will be prompted to enter the credentials) Once user post the creds it will be encrypted to be sent to verify at idp(Facebook)
+* **Step 4:** Facebook sents Authorization URI to Linkedin/Browser. In responses to Authorization URI (user will be prompted to enter the credentials) Once user post the creds it will be encrypted and to be sent to verify at idp(Facebook)
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.png?w=1024)
 
