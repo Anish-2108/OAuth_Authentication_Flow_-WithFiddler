@@ -64,9 +64,15 @@ Once Service provider get the Authorization code and access token. It will reque
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/8.png?w=1024)
 
-**/xauth/scb?_authEd=AgHk5vUHUi64VwAAAXJg_TBlbWTfxH_-3T0n_Lr52QUE0m9scLLhPEF_k-ZdpArVgbWH4K-I5kFc6-45M80VrhvKAXAJZeE7MmUKa1FjvrgBCAiURWVhpKwCOE8-KP1Llhv2w6C047KXGMG2PHPofDmvUFhdoouJKlAwNGkky0MaFnltpSfVt6ZwrgwzsMPx2Xzu90jwd3CVqcefU63dXWaA5N3lntiLgEQerrwoNzMXt59qYJ2WNI0_hJIrOb4siDNOuipYbB9VkW7xDpfBeFvS5uUUlACn3JKGH8S320GlkSWPuOh2E5XWTprDcGQCuqVHESUa2HuxW4BoKAUThEmwhti3I-W3B5K1c49SebL8BSz8Gbh8Mqeg61lbFRmvfgg**
+**Authorization code** 
+*/xauth/scb?_authEd=AgHk5vUHUi64VwAAAXJg_TBlbWTfxH_-3T0n_Lr52QUE0m9scLLhPEF_k-ZdpArVgbWH4K-I5kFc6-45M80VrhvKAXAJZeE7MmUKa1FjvrgBCAiURWVhpKwCOE8-KP1Llhv2w6C047KXGMG2PHPofDmvUFhdoouJKlAwNGkky0MaFnltpSfVt6ZwrgwzsMPx2Xzu90jwd3CVqcefU63dXWaA5N3lntiLgEQerrwoNzMXt59qYJ2WNI0_hJIrOb4siDNOuipYbB9VkW7xDpfBeFvS5uUUlACn3JKGH8S320GlkSWPuOh2E5XWTprDcGQCuqVHESUa2HuxW4BoKAUThEmwhti3I-W3B5K1c49SebL8BSz8Gbh8Mqeg61lbFRmvfgg*
 
 * **Step 7:**
 
-Resource server will sent the user information users information in securely in 
+Resource server in response to Authorization code lets the Service provider access to the client data in JSON format. As shown in below snap.
 
+![Dashboard](https://anishpathan.files.wordpress.com/2020/05/9.png?w=1024)
+
+**So far (OAuth 2.0) Authorization is completed in a Nutshell! **
+
+Now Authentication (O)
