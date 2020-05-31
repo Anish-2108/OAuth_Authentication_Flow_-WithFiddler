@@ -13,7 +13,7 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 * *Download and install fiddler tool and open the LinkedIn signup page and signup with facebook*
 
 * *Start capturing session traffic from the fiddler untill the signup is complete then stop capturing and save all sessions.*
-* ***Status codes: 100 (Continue) * Status codes: 200 (Ok) * Status codes: 300 (Ridrections) * Status codes: 400 (Client Error) * Status codes: 500 (Server Error)***
+* ***Status codes: 100 (Continue) Status codes: 200 (Ok) Status codes: 300 (Ridrections) Status codes: 400 (Client Error) Status codes: 500 (Server Error)***
 
 **(Note:- All of the sessions traffic are encrypted in https so allow Https traffic from fiddler)**
 
