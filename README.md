@@ -1,8 +1,7 @@
 # OAuth_Authentication_Flow_With_Fiddler
 
 ## *Description*
-
-OAuth/OpenId connect is an open standard to grant access to Application or Websites to their information without providing them password. Oauth uses JWT (JSON Web token) in encrypted form to exchange tokens between serivce provider and identity provider.
+OAuth 2.0 and OpenId Connect is very widely used terminology on internet. It’s an open standard to grant access to Application or Websites to users’ information without providing the password of them. OAuth uses JWT (JSON Web token) in encrypted form to exchange tokens between service provider and identity provider to access user resources and Application API.
 
 To illustrate the authorization and authentication flow, I have chosen **LinkedIn** as *Service provider(sp)* and **Facebook** as *Identity provider(idp)*. The motive is to identify the redirections and to understand the authentication flow with Fiddler in action. (*Fiddler intercept session traffic*)
 
@@ -25,28 +24,33 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 ## *Fiddler In Action*
 
-* **Step 1:** Open Linkedin URL Status code 200 (ok).
+* **Step 1:** LinkedIn URL Status code 200 (ok). User clicks sign up with Facebook and couple of redirects between LinkedIn and Facebook requesting OAuth server URI.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
 
-* **Step 2:** OAuth process strated **(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
+* **Step 2:** This is where OAuth process gets started and in redirect its asking for users read only access information it based on the scope defined earlier. **(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
 
-**Step 3:** Idp opens the redirected URI with client id.
+**Step 3:** LinkedIn request for Authorization URI for the user with client id.
+
+In response facebook opens the redirected URI as shown in below (Headers).  
 **Check the response header (*Transport*)**
+![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.png?w=1024)
 
 **Response header** 
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
 
+**Note: -** (Authorization URI are the access and scope request of resource made by LinkedIn to Facebook)
 
-* **Step 4:** Facebook sents Authorization URI to Linkedin/Browser. In responses to Authorization URI (user will be prompted to enter the credentials) Once user post the creds it will be encrypted and to be sent to verify at idp(Facebook)
+* **Step 4:** Facebook checks the client id, request and scope. It then redirects Authorization URI back to LinkedIn with a Facebook pop-up requesting to sign in to verify user’s identity on the Facebook login page itself. (So now the user is getting authenticated on Facebook and not on LinkedIn)
 
-![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.png?w=1024)
+Once user post the credentials on login page Userid and password gets encrypted and sent to verify the credentials at idp(Facebook)
+
+![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
 
 **Response header** 
 *facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9&ret=login&fbapp_pres=0&logger_id=7d6cb9eb-d86f-41d4-b891-80a3e811a58e&cbt=1590765084307&ext=1590768704&hash=AeZbeAYE7clWLqPD*
 
-**Cookies**
-Cookies are stored at browsers with expiry date&time stamp on it to keep session active and remebers the Authorization URI, to avoid unnecessary redirection for the next time when user login.
+**Cookies** are stored at browsers with session id and expiry date and time stamp on it to keep session active and remembers the Authorization URI.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
 
