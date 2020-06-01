@@ -60,12 +60,14 @@ skip_api_login=1&api_key=161320853908703&kid_directed_site=0&app_id=161320853908
 * User post the credentials and hits login and OpenID connect starts. Open ID connect authenticates in secure session between client and server and obtains basic profile information about the end user using REST API.
 * OpenID provides grant or licenses to access resources rather than provide the information of authentication to service provider.
 * In other words, Facebook validates the credentials securely and then request the user consent to authorize service provider to access end users profile information or as per scope. 
-* Once you click ok on user consent. Authorization server generate the Authorization code and access token that is sent to LinkedIn to access the users profile information
+* Once end user click **OK** on user consent. Authorization server generate the Authorization code and access token that is sent to LinkedIn to access the users profile information
 * As shown in the below diagram 
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/06/5.1.jpg?w=1024)
 
 *	**Cookies** are stored at browsers with session id and expiry date and time stamp on it to keep session active and remembers the Authorization URI to save some hassle for the next time.
+
+![Dashboard](https://anishpathan.files.wordpress.com/2020/06/6.1.png?w=1024)
 
 * **Response header** 
 *linkedin.com/genie/finishauth?code=AQAEYHiJ_ebXC0g0zgIBTJIppYKP_jyNufxyccvVU0I3wR596EVu8ubbgHdT0jwT1vxoTE3fQ1sE3xBVOpHmW44GZN64B1-tlWkgUU6FJsrQuF2u803jB_GtzFgUz5yO2uUs4dzpI-a9JPuO-Dm1E7CDNq2rVpRWYJq0Mw7C25ZISuFpjaIln-K5WGyFICE34WVBhjpWYCfa1McgA4Y0HaMiwH20ejr-vF3rMrba4OeqsI-CcCnLuTH7Da46KDlBccU9wpEOgCNJdwn83r-9He3luNCYyyW7eTAF0AEC3heliVVHnO8WAN07LrjsRBjdcmenGEZgu3wMyuGSbOz4lXp7&state=2309982a-87c5-4330-b4d1-d0687f421dd9#_=_*
