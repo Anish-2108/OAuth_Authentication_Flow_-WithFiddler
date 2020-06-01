@@ -1,7 +1,7 @@
 # OAuth 2.0 Authentication and Authorization Flow with Fiddler
 
 ## *Description*
-OAuth 2.0 and OpenId Connect is very widely used terminology on internet. It’s an open standard authorization and authentication protocol to grant access to Application or Websites and to users’ information without providing the password of them. OAuth uses JWT (JSON Web token) in encrypted form to exchange tokens between service provider and identity provider to access user resources and Web API.
+OAuth 2.0 is very widely used terminology on internet. It’s an open standard authorization and authentication protocol to grant access to Application or Websites and to users’ information without providing the password of them. OAuth uses JWT (JSON Web token) in encrypted form to exchange tokens between service provider and identity provider to access user resources and Web API.
 
 To illustrate the authorization and authentication flow, I have chosen **LinkedIn** as *Service provider(sp)* and **Facebook** as *Identity provider(idp)*. The motive is to identify the redirections and to understand the authentication flow with Fiddler in action. (*Fiddler intercept session traffic*)
 
@@ -14,9 +14,9 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 * *Download and install fiddler tool and open the LinkedIn signup page and signup with facebook*
 
 * *Start capturing session traffic from the fiddler untill the signup is complete then stop capturing and save all sessions.*
-* ***Status codes: 100 (Continue) Status codes: 200 (Ok) Status codes: 300 (Ridrections) Status codes: 400 (Client Error) Status codes: 500 (Server Error)***
+* ***Status codes: 100 (Continue) Status codes: 200 (Ok) Status codes: 300 (Redirections) Status codes: 400 (Client Error) Status codes: 500 (Server Error)***
 
-**(Note:- All of the sessions traffic are encrypted in https so allow https traffic from fiddler)**
+**(Note: - All the sessions traffic is encrypted in https so allow https traffic from fiddler)**
 
 ## *Linkedin Sign-up via Facebook.*
 
@@ -28,41 +28,43 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
 
-**Step 2:** This is where OAuth process gets started and in redirect its asking for OAuth server and  users read only access information.**(*facebook.com/v2.12/dialog/oauth? (presented with client id and redirect to OAuth server with URI*)**
-* Access scope are previously defined between Idp/Authorization server which understand the scope of access like whether to read or write access to be provided based on the request.
+**Step 2:** OAuth process gets started and in redirect it is asking for OAuth server information. (https://www.linkedin.com/xauth/startauth?) 
+*	LinkedIn in first redirect get the OAuth server redirect URL to get the Authorization URI
+
+![Dashboard](https://anishpathan.files.wordpress.com/2020/06/2.1.png?w=1024)
 
 
-**Step 3:** LinkedIn request for Authorization URI for the user with client id.
-* In response facebook opens the redirected URI as shown in below (Headers).  
-* **Check the response header (*Transport*)**
-
-![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.png?w=1024)
+**Step 3:** LinkedIn get the OAuth server URL and opens the redirected URL and request Authorization server with client Id, redirection URI and Scope of access required of user. (In this case It is asking for the profile information to Authorization server)
 
 * **Response header** 
-*facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
+*www.facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
 
-**Note: -** (Authorization URI are the access and scope request of resource made by LinkedIn to Facebook)
+![Dashboard](https://anishpathan.files.wordpress.com/2020/06/3.1.png?w=1024)
 
-**Step 4:** Facebook checks the client id, request and scope. 
-* It then redirects Authorization URI back to LinkedIn with a Facebook pop-up requesting to sign in to verify user’s identity on the Facebook login page itself. (So now the user is getting authenticated on Facebook and not on LinkedIn)
 
-* Once user post the credentials on login page Userid and password gets encrypted and sent to verify the credentials at idp(Facebook)
+**Step 4:** In response to the client request of profile scope. Authorization server provides the Authorization URI with redirect URL back to LinkedIn with Facebook login page pop-up. 
 
-![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
+* *(**Note: - It’s on Facebook login Landing page. So, user it is getting authenticated to Facebook and not at client application page this is where OpenID connect comes into the picture**)
 
-* **Response header** 
-*facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9&ret=login&fbapp_pres=0&logger_id=7d6cb9eb-d86f-41d4-b891-80a3e811a58e&cbt=1590765084307&ext=1590768704&hash=AeZbeAYE7clWLqPD*
+* **Request Header of Facebook login Page**
 
-* **Cookies** are stored at browsers with session id and expiry date and time stamp on it to keep session active and remembers the Authorization URI.
+*GET /login.php?
+skip_api_login=1&api_key=161320853908703&kid_directed_site=0&app_id=161320853908703&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv2.12%2Fdialog%2Foauth%3Fclient_id%3D161320853908703%26redirect_uri%3Dhttps%253A%252F%252Fwww.linkedin.com%252Fgenie%252Ffinishauth%26scope%3Demail%26display%3Dpopup%26state%3D2309982a-87c5-4330-b4d1-d0687f421dd9%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D7d6cb9eb-d86f-41d4-b891-80a3e811a58e
 
-![Dashboard](https://anishpathan.files.wordpress.com/2020/05/7.png?w=1024)
 
-**Step 5:** Once Idp verify the authorization URI (Idp will provide Authorization code and access token in encrypted form to access user’s information in read-only access.
+![Dashboard](https://anishpathan.files.wordpress.com/2020/06/4.1.png?w=1024)
 
-* Authorization code contains requested users Metadata and access information of what all information service provider can access) see below fiddler trace.
-* Access token is encrypted in SSL bindings, which has the access scope defined for user's information. In this case its read-only access to the users resources.
 
-![Dashboard](https://anishpathan.files.wordpress.com/2020/05/6.png?w=1024)
+**Step 5:** 
+* User post the credentials and hits login and OpenID connect starts. Open ID connect authenticates in secure session between client and server and obtains basic profile information about the end user using REST API.
+* OpenID provides grant or licenses to access resources rather than provide the information of authentication to service provider.
+* In other words, Facebook validates the credentials securely and then request the user consent to authorize service provider to access end users profile information or as per scope. 
+* Once you click ok on user consent. Authorization server generate the Authorization code and access token that is sent to LinkedIn to access the users profile information
+* As shown in the below diagram 
+
+![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.1.png?w=1024)
+
+*	**Cookies** are stored at browsers with session id and expiry date and time stamp on it to keep session active and remembers the Authorization URI to save some hassle for the next time.
 
 * **Response header** 
 *linkedin.com/genie/finishauth?code=AQAEYHiJ_ebXC0g0zgIBTJIppYKP_jyNufxyccvVU0I3wR596EVu8ubbgHdT0jwT1vxoTE3fQ1sE3xBVOpHmW44GZN64B1-tlWkgUU6FJsrQuF2u803jB_GtzFgUz5yO2uUs4dzpI-a9JPuO-Dm1E7CDNq2rVpRWYJq0Mw7C25ZISuFpjaIln-K5WGyFICE34WVBhjpWYCfa1McgA4Y0HaMiwH20ejr-vF3rMrba4OeqsI-CcCnLuTH7Da46KDlBccU9wpEOgCNJdwn83r-9He3luNCYyyW7eTAF0AEC3heliVVHnO8WAN07LrjsRBjdcmenGEZgu3wMyuGSbOz4lXp7&state=2309982a-87c5-4330-b4d1-d0687f421dd9#_=_*
