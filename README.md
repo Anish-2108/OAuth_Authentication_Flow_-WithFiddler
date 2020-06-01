@@ -56,7 +56,7 @@ skip_api_login=1&api_key=161320853908703&kid_directed_site=0&app_id=161320853908
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/06/4.1.png?w=1024)
 
 
-**Step 5:** OpenId Connecct
+**Step 5:** OpenId Connect
 * User post the credentials and hits login and OpenID connect starts. Open ID connect authenticates in secure session between client and server and obtains basic profile information about the end user using REST API.
 * OpenID provides grant or licenses to access resources rather than provide the information of authentication to service provider.
 * In other words, Facebook validates the credentials securely and then request the user consent to authorize service provider to access end users profile information or as per scope. 
