@@ -28,7 +28,8 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/05/4.png?w=1024)
 
-**Step 2:** OAuth process gets started and in redirect it is asking for OAuth server information. (https://www.linkedin.com/xauth/startauth?) 
+**Step 2:** OAuth process gets started and in redirect it is asking for OAuth server information. 
+(www.linkedin.com/xauth/startauth?) 
 *	LinkedIn in first redirect get the OAuth server redirect URL to get the Authorization URI
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/06/2.1.png?w=1024)
@@ -36,17 +37,17 @@ To illustrate the authorization and authentication flow, I have chosen **LinkedI
 
 **Step 3:** LinkedIn get the OAuth server URL and opens the redirected URL and request Authorization server with client Id, redirection URI and Scope of access required of user. (In this case It is asking for the profile information to Authorization server)
 
-* **Response header** 
-*www.facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
+**Response header** 
+*facebook.com/v2.12/dialog/oauth?client_id=161320853908703&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fgenie%2Ffinishauth&scope=email&display=popup&state=2309982a-87c5-4330-b4d1-d0687f421dd9*
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/06/3.1.png?w=1024)
 
 
 **Step 4:** In response to the client request of profile scope. Authorization server provides the Authorization URI with redirect URL back to LinkedIn with Facebook login page pop-up. 
 
-* *(**Note: - It’s on Facebook login Landing page. So, user it is getting authenticated to Facebook and not at client application page this is where OpenID connect comes into the picture**)
+(**Note: - It’s on Facebook login Landing page. So, user it is getting authenticated to Facebook and not at client application page this is where OpenID connect comes into the picture**)
 
-* **Request Header of Facebook login Page**
+**Request Header of Facebook login Page**
 
 *GET /login.php?
 skip_api_login=1&api_key=161320853908703&kid_directed_site=0&app_id=161320853908703&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv2.12%2Fdialog%2Foauth%3Fclient_id%3D161320853908703%26redirect_uri%3Dhttps%253A%252F%252Fwww.linkedin.com%252Fgenie%252Ffinishauth%26scope%3Demail%26display%3Dpopup%26state%3D2309982a-87c5-4330-b4d1-d0687f421dd9%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D7d6cb9eb-d86f-41d4-b891-80a3e811a58e
