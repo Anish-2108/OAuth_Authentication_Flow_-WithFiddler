@@ -1,9 +1,9 @@
 # OAuth 2.0 Authentication and Authorization Flow with Fiddler
 
 ## *Description*
-OAuth 2.0 is very widely used terminology on internet. It’s an open standard authorization and authentication protocol to grant access to Application or Websites and to users’ information without providing the password of them. OAuth uses JWT (JSON Web token) in encrypted form to exchange tokens between service provider and identity provider to access user resources and Web API.
+OAuth 2.0 is very widely used terminology on internet. It’s an open standard authentication and authorization protocol to grant access to Application or Websites and to users’ information without providing the password of them. OAuth uses JWT (JSON Web token) in encrypted form to exchange tokens between service provider and identity provider to access user resources and Web API. Ex:- contacts.google.com
 
-To illustrate the authorization and authentication flow, I have chosen **LinkedIn** as *Service provider(sp)* and **Facebook** as *Identity provider(idp)*. The motive is to identify the redirections and to understand the authentication flow with Fiddler in action. (*Fiddler intercept session traffic*)
+To illustrate the authentication and authorization flow, I have chosen **LinkedIn** as *Service provider(sp)* and **Facebook** as *Identity provider(idp)*. The motive is to identify the redirections and to understand the authentication flow with Fiddler in action. (*Fiddler intercept session traffic*)
 
 ## *Overview*
 
@@ -65,7 +65,7 @@ skip_api_login=1&api_key=161320853908703&kid_directed_site=0&app_id=161320853908
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/06/5.1.jpg?w=1024)
 
-*	**Cookies** are stored at browsers with session id and expiry date and time stamp on it to keep session active and remembers the Authorization URI to save some hassle for the next time.
+**Cookies** are stored at browsers with session id and expiry date and time stamp on it to keep session active and remembers the Authorization URI to save some hassle for the next time.
 
 ![Dashboard](https://anishpathan.files.wordpress.com/2020/06/6.1.png?w=1024)
 
