@@ -62,7 +62,7 @@ skip_api_login=1&api_key=161320853908703&kid_directed_site=0&app_id=161320853908
 * Once you click ok on user consent. Authorization server generate the Authorization code and access token that is sent to LinkedIn to access the users profile information
 * As shown in the below diagram 
 
-![Dashboard](https://anishpathan.files.wordpress.com/2020/05/5.1.png?w=1024)
+![Dashboard](https://anishpathan.files.wordpress.com/2020/06/5.1.jpg?w=1024)
 
 *	**Cookies** are stored at browsers with session id and expiry date and time stamp on it to keep session active and remembers the Authorization URI to save some hassle for the next time.
 
